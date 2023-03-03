@@ -29,5 +29,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "experimentalDecorators": true, // for @automapper/classes
+  "emitDecoratorMetadata": true // for @automapper/classes
 }
