@@ -17,5 +17,8 @@ export const environment = {
         },
         defaultCurrency: 'USD',
         aviableCurrencies: ['GEL', 'USD', 'EUR']
+    },
+    taxes: {
+        defaultPercentage: 1
     }
 };

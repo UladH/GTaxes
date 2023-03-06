@@ -7,9 +7,13 @@ import { ComponentState } from 'src/app/core/constants/enums/components/componen
 import { CurrencyModel } from 'src/app/core/models/inner/currency/currency.model';
 import { InvoiceModel } from 'src/app/core/models/inner/invoice/invoice.model';
 import { CurrencyService } from 'src/app/core/services/currency/currency.service';
+import { DateTimeService } from 'src/app/core/services/utils/date-time.service';
+import { CustomValidators } from 'src/app/core/validators/custom-validators.validator';
 
 @Injectable()
 export class InvoiceFormService extends SmartFormControlValueAccessorService<InvoiceModel> {
+  private _minDate: Date = new Date(0);
+  private _maxDate: Date = new Date();
   private _currencies: CurrencyModel[] | null = null;
 
   private onCurrenciesUpdatedSubject$: Subject<CurrencyModel[] | null> = new Subject<CurrencyModel[] | null>();
@@ -18,6 +22,7 @@ export class InvoiceFormService extends SmartFormControlValueAccessorService<Inv
 
   constructor(
     private currencyService: CurrencyService,
+    private dateTimeService: DateTimeService,
     private formBuilder: FormBuilder,
     @Inject(DEFAULT_CURRENCY) private readonly defaultCurrency: string
   ) {
@@ -37,6 +42,26 @@ export class InvoiceFormService extends SmartFormControlValueAccessorService<Inv
   //#endregion
 
   //#region getters setters
+  
+  public get minDate(): Date{
+    return this._minDate;
+  }
+
+  public set minDate(value: Date) {
+    this._minDate = value;
+
+    this.updateValidators();
+  }
+
+  public get maxDate(): Date{
+    return this._maxDate;
+  }
+
+  public set maxDate(value: Date) {
+    this._maxDate = value;
+
+    this.updateValidators();
+  }
 
   public get currency(): string | null{
     return this.form?.value.currency || null;
@@ -65,7 +90,7 @@ export class InvoiceFormService extends SmartFormControlValueAccessorService<Inv
 
   public patchForm(value: InvoiceModel | null): void {
     this.form.patchValue({
-      date: value?.date || new Date(),
+      date: value?.date || this.dateTimeService.resetTime(new Date()),
       amount: value?.amount || 0,
       currency: value?.currency || this.defaultCurrency
     });
@@ -73,7 +98,7 @@ export class InvoiceFormService extends SmartFormControlValueAccessorService<Inv
   
   public initForm(): void {
     this.form = this.form = this.formBuilder.group({
-      date: [new Date(), Validators.required],
+      date: [this.dateTimeService.resetTime(new Date()), [Validators.required, CustomValidators.minDate(this.minDate), CustomValidators.maxDate(this.maxDate)]],
       amount: [0, [Validators.required, Validators.min(0)]],
       currency: [this.defaultCurrency, Validators.required]
     });
@@ -103,6 +128,11 @@ export class InvoiceFormService extends SmartFormControlValueAccessorService<Inv
   private onCurrenciesUpdatedHandler(currencies: CurrencyModel[]): void {
     this.currencies = currencies;
     this.state = ComponentState.Content;
+  }
+  
+  private updateValidators(): void{
+    this.form?.get('date')?.setValidators([Validators.required, CustomValidators.minDate(this.minDate), CustomValidators.maxDate(this.maxDate)]);
+    this.form?.get('date')?.updateValueAndValidity();
   }
 
   //#endregion

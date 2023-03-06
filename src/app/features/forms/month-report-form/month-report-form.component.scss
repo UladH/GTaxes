@@ -1,0 +1,58 @@
+@import 'layout.scss';
+
+.month-report-form {
+    @include layout-column-v_start-h_stretch;
+    gap: 1rem;
+}
+
+.month-report-form_row{
+    @include layout-row-v_start-h_start;
+    gap: 1rem;
+    padding: 1.5rem 0 0 0;
+}
+
+.month-report-form_invoices {
+    @include layout-column-v_start-h_stretch;
+    gap: 1rem;
+}
+
+.month-report-form_invoice-wrapper{
+    @include layout-row-v_end-h_start;
+    gap: 1rem;
+}
+
+.month-report-form_invoices-title{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.month-report-form_invoice{
+    @include layout-flex-grow;
+}
+
+.month-report-form_element{
+    @include layout-flex-grow;
+}
+
+.month-report-form_element-input{
+    width: 100%;
+    
+    ::ng-deep{
+        .p-calendar{
+            width: 100%;
+
+            .p-inputtext{
+                width: 100%;
+            }
+        }
+
+        .p-inputnumber{
+            width: 100%;
+        }
+        
+        .p-dropdown{
+            width: 100%;
+        }
+    }
+}

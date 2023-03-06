@@ -30,9 +30,6 @@ const INVOICE_FORM_VALIDATORS = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InvoiceFormComponent extends SmartFormControlValueAccessorComponent<InvoiceModel> {
-  @Input() public minDate: Date = new Date(0);
-  @Input() public maxDate: Date = new Date();
-
   //#region constructor
 
   constructor(
@@ -47,6 +44,22 @@ export class InvoiceFormComponent extends SmartFormControlValueAccessorComponent
   //#endregion
 
   //#region getters setters
+
+  public get minDate(): Date{
+    return this.componentService.minDate;
+  }
+
+  @Input() public set minDate(value: Date) {
+    this.componentService.minDate = value;
+  }
+
+  public get maxDate(): Date{
+    return this.componentService.maxDate;
+  }
+
+  @Input() public set maxDate(value: Date) {
+    this.componentService.maxDate = value;
+  }
 
   public get currencies(): CurrencyModel[] | null{
     return this.componentService.currencies;

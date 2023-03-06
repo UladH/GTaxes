@@ -1,0 +1,57 @@
+<form class="month-report-form" [formGroup]="form">
+    <div class="month-report-form_row">
+        <span class="month-report-form_element p-float-label">
+            <p-inputNumber 
+                class="month-report-form_element-input"
+                formControlName="yearIncome"
+                mode="currency" 
+                [currency]="nationaCurrencyCode" 
+                [minFractionDigits]="2">
+            </p-inputNumber>
+            <label for="taxPercentage">Total income of the previous months of this year</label>
+        </span>
+        <span class="month-report-form_element p-float-label">
+            <p-calendar
+                class="month-report-form_element-input"
+                formControlName="date"
+                view="month" 
+                dateFormat="mm/yy"
+                [showIcon]="true"
+                [minDate]="minDate"
+                [maxDate]="maxDate">
+            </p-calendar>
+            <label for="date">Month</label>
+        </span>
+        <span class="month-report-form_element p-float-label">
+            <p-inputNumber 
+                class="month-report-form_element-input"
+                formControlName="taxPercentage" 
+                prefix="%" 
+                [min]="0" 
+                [max]="100">
+            </p-inputNumber>
+            <label for="taxPercentage">Tax Percentage</label>
+        </span>
+    </div>
+    <div class="month-report-form_invoices" formArrayName="invoices">
+        <p class="month-report-form_invoices-title">Invoices</p>
+        <div *ngFor="let invoice of invoices.controls; let i=index"
+            class="month-report-form_invoice-wrapper">
+            <gt-invoice-form class="month-report-form_invoice"
+                [formControlName]="''+i"
+                [minDate]="minInvoiceDate"
+                [maxDate]="maxInvoiceDate">                
+            </gt-invoice-form>
+            <p-button 
+                label="Remove" 
+                styleClass="p-button-danger" 
+                (onClick)="removeInvoice(i)">
+            </p-button>
+        </div>
+    </div>
+    <p-button label="Add Invoice" (onClick)="addInvoice()"></p-button>
+</form>
+
+<p>{{ form.value | json }}</p>
+
+<p>form valid: {{ form.valid }}</p>

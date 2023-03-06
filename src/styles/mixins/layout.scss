@@ -8,6 +8,37 @@
     align-items: flex-start;
 }
 
+@mixin layout-row-v_center-h_start {
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center flex-start;
+    align-items: center;
+}
+
+@mixin layout-row-v_end-h_start {
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: flex-end flex-start;
+    align-items: flex-end;
+}
+
+@mixin layout-column-v_start-h_stretch {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: flex;
+    place-content: stretch flex-start;
+    align-items: stretch;
+    max-width: 100%;
+}
+
 @mixin layout-column-v_center-h_center {
     width: 100%;
     height: 100%;
