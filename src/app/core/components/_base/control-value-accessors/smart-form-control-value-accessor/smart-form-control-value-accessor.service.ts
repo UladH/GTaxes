@@ -26,7 +26,7 @@ export abstract class SmartFormControlValueAccessorService<T> implements ISmartC
   //#region lifecycle hooks
 
   /**
-   * @description
+   * @privateRemarks
    * Angular doesn't trigger ngOnInit for services, but there is a troubles with initialization extended classes with constructor,
    * so we trigger this method manually from component
    */
@@ -71,9 +71,9 @@ export abstract class SmartFormControlValueAccessorService<T> implements ISmartC
 
   //#region public  
 
-  public abstract patchForm(value: T | null): FormGroup;
+  public abstract patchForm(value: T | null): void;
   
-  public abstract initForm(): FormGroup;
+  public abstract initForm(): void;
 
   //#endregion
 

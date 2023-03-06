@@ -68,7 +68,7 @@ export abstract class ControlValueAccessorComponent<T> implements OnInit, Contro
   }
 
   /**
-   * @description
+   * @privateRemarks
    * getter is used for displaying all active errors inside component 
    */
   public get activeErrorMessages(): string[] {
@@ -76,7 +76,7 @@ export abstract class ControlValueAccessorComponent<T> implements OnInit, Contro
   }
   
   /**
-   * @description
+   * @privateRemarks
    * internal getter and setter for control value. Method "writeValue" doesn't use public getter/setter,
    * because we don't trigger onChange event and we need additional getter/setter for overriding
    */

@@ -1,0 +1,39 @@
+<gt-basic-wrapper
+    [state]="state">
+    <form class="invoice-form" [formGroup]="form">
+        <span class="invoice-form_element p-float-label">
+            <p-calendar
+                class="invoice-form_element-input"
+                formControlName="date"
+                dateFormat="dd/mm/yy"
+                [showIcon]="true"
+                [minDate]="minDate"
+                [maxDate]="maxDate">
+            </p-calendar>
+            <label for="date">Invoice date</label>
+        </span>
+        <span class="invoice-form_element p-float-label">
+            <p-inputNumber 
+                class="invoice-form_element-input"
+                formControlName="amount" 
+                mode="currency" 
+                [currency]="currencyCode" 
+                [minFractionDigits]="2">
+            </p-inputNumber>
+            <label for="amount">Invoice amount</label>
+        </span>
+        <span class="invoice-form_element p-float-label">
+            <p-dropdown 
+                class="invoice-form_element-input"
+                formControlName="currency" 
+                optionLabel="name" 
+                optionValue="code"
+                [options]="currencies || []">        
+            </p-dropdown>
+            <label for="currency">Currency</label>
+        </span>
+    </form>
+</gt-basic-wrapper>
+
+<p>{{form.value | json}}</p>
+<p>{{form.valid}}</p>

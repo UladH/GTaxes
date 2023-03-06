@@ -15,3 +15,10 @@ export const AVIABLE_CURRENCIES = new InjectionToken<string[]>('AVIABLE_CURRENCI
     factory: () => environment.currencies.aviableCurrencies
   }
 );
+
+export const DEFAULT_CURRENCY = new InjectionToken<string>('DEFAULT_CURRENCY',
+  {
+    providedIn: 'root',
+    factory: () => environment.currencies.defaultCurrency
+  }
+);
