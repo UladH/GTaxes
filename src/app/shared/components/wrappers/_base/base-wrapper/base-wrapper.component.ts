@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ComponentState } from './enums/component-state.enum';
+import { ComponentState } from 'src/app/core/constants/enums/components/component-state.enum';
 
 @Component({
   template: ''
