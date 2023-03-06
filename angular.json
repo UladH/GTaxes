@@ -38,7 +38,8 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles/constants"
+                "src/styles/constants",
+                "src/styles/mixins"
               ]
             }
           },
@@ -115,7 +116,8 @@
             "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/styles/constants"
+                "src/styles/constants",
+                "src/styles/mixins"
               ]
             }
           }

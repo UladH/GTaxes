@@ -1,0 +1,5 @@
+@import 'layout.scss';
+
+.basic-wrapper{
+    @include layout-column-v_center-h_center;
+}
