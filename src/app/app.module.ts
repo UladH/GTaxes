@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MonthIncomeFormModule } from './features/forms/month-report-form/month-report-form.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { MonthIncomeFormModule } from './features/forms/month-report-form/month-
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpClientModule,
-    MonthIncomeFormModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+<p-panel
+    header="Month Report">
+    <gt-basic-wrapper
+        [state]="state">
+        <div class="month-report">
+            <p class="month-report_line">Year income (previous): {{yearIncomePrevious}}</p>
+            <p-panel *ngFor="let invoice of invoices; let i=index" 
+                [header]="'Invoice ' + (i+1) +  ' (' + invoice.date.toDateString() + ')'">
+                <p class="month-report_line"> income: {{invoice.amount}} {{invoice.currency}}</p>
+                <p class="month-report_line"> exchange rate: {{invoice.exchangeRate}}</p>
+                <p class="month-report_line"> converted income: {{invoice.convertedAmount}} {{nationalCurrency.code}}</p>
+            </p-panel>            
+            <p class="month-report_line">Total month income: {{monthIncome}}</p>
+            <p class="month-report_line">Total year income: {{yearIncome}}</p>
+            <p class="month-report_line">tax ({{taxPercentage}}%): {{tax}}</p>
+        </div>
+    </gt-basic-wrapper>
+</p-panel>

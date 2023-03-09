@@ -6,7 +6,8 @@ export const environment = {
                 'Accept-Language': 'en'
             },
             currencies: {
-                codes: 'ct/monetarypolicy/currencies/codes'
+                currencies: '/ct/monetarypolicy/currencies/',
+                codes: 'ct/monetarypolicy/currencies/codes',
             }
         }
     },

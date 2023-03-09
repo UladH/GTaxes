@@ -1,0 +1,12 @@
+@import 'layout.scss';
+
+.tax-calculator{
+    @include layout-row-v_start-h_start;
+
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.tax-calculator_column{
+    @include layout-flex(50%);
+}

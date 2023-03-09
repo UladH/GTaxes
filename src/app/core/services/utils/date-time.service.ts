@@ -38,5 +38,14 @@ export class DateTimeService {
     return new Date(date.setHours(0, 0 ,0 ,0))
   }
 
+  public formatDate(date: Date, format: string = 'yyyy-mm-dd'): string {
+    const formatedDate = format
+      .replace('yyyy', ''+date.getFullYear())
+      .replace('mm', ''+date.getMonth())
+      .replace('dd', ''+date.getDate());
+
+    return formatedDate;
+  }
+
   //#endregion
 }

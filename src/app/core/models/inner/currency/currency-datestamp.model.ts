@@ -1,6 +1,6 @@
 export class CurrencyDatestampModel{
     public code!: string;
-    public date!: string;
+    public date!: Date;
     public name!: string;
     public rate!: number;
 }

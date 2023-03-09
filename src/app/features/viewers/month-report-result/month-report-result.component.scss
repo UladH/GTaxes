@@ -1,0 +1,12 @@
+@import 'layout.scss';
+
+.month-report{
+    @include layout-column-v_start-h_stretch;
+    gap: 20px; 
+}
+
+.month-report_line {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+}

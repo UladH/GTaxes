@@ -49,8 +49,12 @@
     align-items: center;
 }
 
-@mixin layout-flex-grow {
-    flex: 1 1 100%;
+@mixin layout-flex($size) {
+    flex: 1 1 $size;
     box-sizing: border-box;
-    max-width: 100%;
+    max-width: $size;
+}
+
+@mixin layout-flex-grow {
+    @include layout-flex(100%);
 }

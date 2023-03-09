@@ -8,14 +8,14 @@
                 [currency]="nationaCurrencyCode" 
                 [minFractionDigits]="2">
             </p-inputNumber>
-            <label for="taxPercentage">Total income of the previous months of this year</label>
+            <label for="taxPercentage">Year income (previous months)</label>
         </span>
         <span class="month-report-form_element p-float-label">
             <p-calendar
                 class="month-report-form_element-input"
                 formControlName="date"
                 view="month" 
-                dateFormat="mm/yy"
+                dateFormat="M yy"
                 [showIcon]="true"
                 [minDate]="minDate"
                 [maxDate]="maxDate">
@@ -51,7 +51,3 @@
     </div>
     <p-button label="Add Invoice" (onClick)="addInvoice()"></p-button>
 </form>
-
-<p>{{ form.value | json }}</p>
-
-<p>form valid: {{ form.valid }}</p>

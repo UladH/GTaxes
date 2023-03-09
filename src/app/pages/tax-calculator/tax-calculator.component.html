@@ -1,0 +1,14 @@
+<h1>Georgian Tax Calculator</h1>
+<div class="tax-calculator">
+    <form class="tax-calculator_column"
+        [formGroup]="form">   
+        <gt-month-report-form
+            formControlName="report">
+        </gt-month-report-form>     
+    </form>
+
+    <gt-month-report-result
+        class="tax-calculator_column"
+        [monthReport]="reportViewData">
+    </gt-month-report-result>
+</div>

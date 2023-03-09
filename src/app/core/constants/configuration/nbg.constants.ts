@@ -21,6 +21,13 @@ export const NBG_API_DEFAULT_HEADERS = new InjectionToken<{ [key: string]: strin
 
 //#region endpoints
 
+export const NBG_API_CURRENCIES= new InjectionToken<string>('NBG_API_CURRENCIES',
+  {
+    providedIn: 'root',
+    factory: () => environment.api.nbg.currencies.currencies
+  }
+);
+
 export const NBG_API_CURRENCIES_CODES= new InjectionToken<string>('NBG_API_CURRENCIES_CODES',
   {
     providedIn: 'root',

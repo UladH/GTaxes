@@ -1,4 +1,4 @@
-import { Component, Host, OnDestroy, Optional, SkipSelf } from '@angular/core';
+import { AfterViewInit, Component, Host, OnDestroy, Optional, SkipSelf } from '@angular/core';
 import { AbstractControl, ControlContainer, FormGroup, ValidationErrors, Validator } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ControlValueAccessorComponent } from '../control-value-accessor/control-value-accessor.component';
@@ -6,7 +6,7 @@ import { ControlValueAccessorComponent } from '../control-value-accessor/control
 @Component({
   template: ''
 })
-export abstract class FormControlValueAccessorComponent<T> extends ControlValueAccessorComponent<T> implements OnDestroy, Validator {
+export abstract class FormControlValueAccessorComponent<T> extends ControlValueAccessorComponent<T> implements AfterViewInit, OnDestroy, Validator {
   protected componentSubscriptions: Subscription = new Subscription();
 
   //#region constructor
@@ -28,6 +28,12 @@ export abstract class FormControlValueAccessorComponent<T> extends ControlValueA
 
   public ngOnDestroy(): void {
     this.removeSubscriptions();
+  }
+
+  public ngAfterViewInit() {
+    setTimeout(() => {
+      this.onChangeCallback(this.value);
+    })
   }
 
   //#endregion
