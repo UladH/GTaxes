@@ -68,7 +68,7 @@ export class MonthReportResultService extends SmartComponentService {
               amount: invoice.amount,
               currency: invoice.currency,
               exchangeRate: datestamp.rate,
-              convertedAmount: invoice.amount * datestamp.rate
+              convertedAmount: Math.ceil(invoice.amount * datestamp.rate * 100) / 100
             } as CalculatedInvoiceModel
           })
         )
@@ -77,7 +77,7 @@ export class MonthReportResultService extends SmartComponentService {
 
     combineLatest(datestamps$).pipe(take(1)).subscribe((invoices: CalculatedInvoiceModel[]) =>{
       const monthIncome = invoices.reduce((amount, invoice) => amount + invoice.convertedAmount, 0);
-      const yearIncome = monthReport.yearIncome + Math.ceil(monthIncome * 100) / 100;
+      const yearIncome = monthReport.yearIncome + monthIncome;
       const tax = Math.ceil(monthIncome * monthReport.taxPercentage) / 100;
 
       this.calculatedMonthReport = {

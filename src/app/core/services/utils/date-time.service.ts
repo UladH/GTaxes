@@ -41,7 +41,7 @@ export class DateTimeService {
   public formatDate(date: Date, format: string = 'yyyy-mm-dd'): string {
     const formatedDate = format
       .replace('yyyy', ''+date.getFullYear())
-      .replace('mm', ''+date.getMonth())
+      .replace('mm', ''+(date.getMonth() + 1))
       .replace('dd', ''+date.getDate());
 
     return formatedDate;

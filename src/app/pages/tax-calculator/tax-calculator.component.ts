@@ -65,7 +65,6 @@ export class TaxCalculatorComponent implements OnInit, OnDestroy {
     this.componentSubscriptions.add(
       this.form.valueChanges
         .pipe(
-          debounceTime(2000),
           filter((value) => this.form.status == 'VALID')
         )
         .subscribe(this.onFormValueChangedHandler.bind(this))
