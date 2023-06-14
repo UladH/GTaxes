@@ -24,6 +24,7 @@
     "primeng": "^16.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.8.0",
+    "subform-control-value-accessor": "^1.0.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.13.1"
   },

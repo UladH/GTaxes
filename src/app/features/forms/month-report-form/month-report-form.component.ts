@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Host, Inject, Input, Optional, SkipSelf } from '@angular/core';
 import { ControlContainer, FormArray, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { FormControlValueAccessorComponent } from 'src/app/core/components/_base/control-value-accessors/form-control-value-accessor/form-control-value-accessor.component';
 import { DEFAULT_CURRENCY, NATIONAL_CURRENCY } from 'src/app/core/constants/configuration/currency.constants';
 import { DEFAULT_TAX_PERCENTAGE } from 'src/app/core/constants/configuration/taxes.constants';
 import { CurrencyModel } from 'src/app/core/models/inner/currency/currency.model';
@@ -8,6 +7,7 @@ import { InvoiceModel } from 'src/app/core/models/inner/invoice/invoice.model';
 import { MonthReportModel } from 'src/app/core/models/inner/invoice/month-report.model';
 import { DateTimeService } from 'src/app/core/services/utils/date-time.service';
 import { CustomValidators } from 'src/app/core/validators/custom-validators.validator';
+import { FormControlValueAccessorComponent } from 'subform-control-value-accessor';
 
 const MONTH_REPORT_FORM_VALUE_ACCESSOR = {       
   provide: NG_VALUE_ACCESSOR, 
