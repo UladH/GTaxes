@@ -1,6 +1,6 @@
 {
   "name": "gtaxes",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,6 +20,9 @@
     "@angular/router": "^16.1.0",
     "@automapper/classes": "^8.7.7",
     "@automapper/core": "^8.7.7",
+    "acwrapper": "^1.0.4",
+    "i": "^0.3.7",
+    "npm": "^9.7.1",
     "primeicons": "^6.0.1",
     "primeng": "^16.0.0",
     "reflect-metadata": "^0.1.13",

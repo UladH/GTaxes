@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
+import { ComponentState } from 'acwrapper';
 import { Observable, Subject, Subscription } from 'rxjs';
-import { ComponentState } from 'src/app/core/constants/enums/components/component-state.enum';
 import { ISmartComponentService } from 'src/app/core/interfaces/components/smart-components/smart-component-service.interface';
 
 @Injectable()

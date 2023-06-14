@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ComponentState } from 'src/app/core/constants/enums/components/component-state.enum';
 import { ISmartComponent } from 'src/app/core/interfaces/components/smart-components/smart-component.interface';
 import { SmartComponentService } from './smart-component.service';
+import { ComponentState } from 'acwrapper';
 
 @Component({
   template:''

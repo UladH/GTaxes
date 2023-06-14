@@ -6,6 +6,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InvoiceFormComponent } from './invoice-form.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { WrapperModule } from 'acwrapper';
 
 
 
@@ -20,7 +21,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     DropdownModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    WrapperModule 
   ],
   exports: [
     InvoiceFormComponent

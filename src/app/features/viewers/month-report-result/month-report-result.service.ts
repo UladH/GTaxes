@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { ComponentState } from 'acwrapper';
 import { combineLatest, map, Observable, take } from 'rxjs';
 import { SmartComponentService } from 'src/app/core/components/_base/smart-components/smart-component/smart-component.service';
-import { ComponentState } from 'src/app/core/constants/enums/components/component-state.enum';
 import { CalculatedInvoiceModel } from 'src/app/core/models/inner/invoice/calculated-invoice.model';
 import { CalculatedMonthReportModel } from 'src/app/core/models/inner/invoice/calculated-month-report.model';
 import { MonthReportModel } from 'src/app/core/models/inner/invoice/month-report.model';

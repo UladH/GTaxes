@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Component, Host, Optional, SkipSelf } from '@angular/core';
 import { ControlContainer, FormGroup } from '@angular/forms';
-import { ComponentState } from 'src/app/core/constants/enums/components/component-state.enum';
 import { ISmartComponent } from 'src/app/core/interfaces/components/smart-components/smart-component.interface';
 import { SmartFormControlValueAccessorService } from './smart-form-control-value-accessor.service';
 import { FormControlValueAccessorComponent } from 'subform-control-value-accessor';
+import { ComponentState } from 'acwrapper';
 
 @Component({
   template: ''

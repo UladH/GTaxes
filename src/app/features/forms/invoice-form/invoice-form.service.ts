@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ComponentState } from 'acwrapper';
 import { Observable, Subject } from 'rxjs';
 import { SmartFormControlValueAccessorService } from 'src/app/core/components/_base/control-value-accessors/smart-form-control-value-accessor/smart-form-control-value-accessor.service';
 import { DEFAULT_CURRENCY } from 'src/app/core/constants/configuration/currency.constants';
-import { ComponentState } from 'src/app/core/constants/enums/components/component-state.enum';
 import { CurrencyModel } from 'src/app/core/models/inner/currency/currency.model';
 import { InvoiceModel } from 'src/app/core/models/inner/invoice/invoice.model';
 import { CurrencyService } from 'src/app/core/services/currency/currency.service';
